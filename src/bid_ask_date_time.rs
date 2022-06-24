@@ -4,6 +4,7 @@ use rust_extensions::date_time::DateTimeAsMicroseconds;
 const OUR_MARKER: u8 = 'O' as u8;
 const SOURCE_MARKER: u8 = 'S' as u8;
 
+#[derive(Debug)]
 pub enum BidAskDateTime {
     Source(DateTimeAsMicroseconds),
     Our(DateTimeAsMicroseconds),
