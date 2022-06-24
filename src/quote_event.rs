@@ -1,6 +1,6 @@
 use super::BidAskDateTime;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum BidAskContract {
     Ping,
     Pong,
@@ -34,7 +34,7 @@ impl BidAskContract {
         }
     }
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct BidAsk {
     pub date_time: BidAskDateTime,
     pub id: String,
