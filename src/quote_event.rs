@@ -33,6 +33,14 @@ impl BidAskContract {
             BidAskContract::BidAsk(bid_ask) => bid_ask.serialize(dest),
         }
     }
+
+    pub fn is_bid_ask(&self) -> bool {
+        match self {
+            BidAskContract::Ping => false,
+            BidAskContract::Pong => false,
+            BidAskContract::BidAsk(_) => true,
+        }
+    }
 }
 #[derive(Debug, Clone)]
 pub struct BidAsk {
