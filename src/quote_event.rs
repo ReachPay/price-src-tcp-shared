@@ -154,4 +154,25 @@ mod tests {
             result_str
         );
     }
+    #[test]
+    fn test_our_with_zero_ms() {
+        let src = "O20220512121505.000 BTCUSD 1.3234334 1.54345 BINANCE";
+        let result = BidAsk::parse(src).unwrap();
+        let mut result_str = Vec::new();
+        result.serialize(&mut result_str);
+        let date_time = result.date_time.unwrap_as_our_date();
+
+        assert_eq!(result.id, "BTCUSD");
+        assert_eq!(result.source, "BINANCE");
+        assert_eq!(result.bid.to_string(), "1.3234334");
+        assert_eq!(result.ask.to_string(), "1.54345");
+        assert_eq!("2022-05-12T12:15:05", &date_time.to_rfc3339()[..19]);
+
+        let result_str = String::from_utf8(result_str).unwrap();
+
+        assert_eq!(
+            "O20220512121505.000 BTCUSD 1.3234334 1.54345 BINANCE",
+            result_str
+        );
+    }
 }
