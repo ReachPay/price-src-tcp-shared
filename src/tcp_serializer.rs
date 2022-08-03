@@ -4,7 +4,7 @@ use my_tcp_sockets::{
     TcpSocketSerializer,
 };
 
-use super::quote_event::BidAskContract;
+use super::bid_ask_contract::BidAskContract;
 
 static CLCR: &[u8] = &[13u8, 10u8];
 const MAX_PACKET_CAPACITY: usize = 255;

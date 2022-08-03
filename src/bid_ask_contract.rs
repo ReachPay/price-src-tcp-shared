@@ -42,6 +42,16 @@ impl BidAskContract {
         }
     }
 }
+
+impl my_tcp_sockets::tcp_connection::TcpContract for BidAskContract {
+    fn is_pong(&self) -> bool {
+        match self {
+            BidAskContract::Pong => true,
+            _ => false,
+        }
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct BidAsk {
     pub date_time: BidAskDateTime,
